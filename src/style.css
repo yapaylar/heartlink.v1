@@ -342,7 +342,7 @@ body {
   font-size: 0.82rem;
   font-weight: 600;
   color: #fff;
-  background: var(--accent);
+  background: #023da6;
   text-decoration: none;
   box-shadow: 0 8px 24px rgba(2, 61, 166, 0.35);
   transition:
