@@ -1,4 +1,7 @@
 import './style.css'
+import { inject } from '@vercel/analytics'
+
+inject()
 
 const ACCESS_CODE = 'gact'
 const ACCESS_KEY = 'hl_site_auth'
