@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Heartlink+ — landing page."
+    />
+    <title>Heartlink+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="bg-base" aria-hidden="true"></div>
+    <div class="bg-grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="nav-pill" aria-label="Primary">
+        <a class="logo" href="/" aria-label="Heartlink+ home">
+          <img
+            class="logo-img"
+            src="/hlplogo.png"
+            alt="Heartlink+"
+            width="200"
+            height="48"
+            decoding="async"
+          />
+        </a>
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="#about">About</a>
+          </li>
+          <li class="nav-item nav-item--dropdown">
+            <button
+              type="button"
+              class="nav-trigger"
+              id="menu-services"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="submenu-services"
+            >
+              Services
+              <svg
+                class="nav-chevron"
+                width="10"
+                height="10"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+              >
+                <path fill="currentColor" d="M6 8.5 1.5 4h9L6 8.5Z" />
+              </svg>
+            </button>
+            <ul
+              id="submenu-services"
+              class="submenu"
+              role="menu"
+              aria-labelledby="menu-services"
+            >
+              <li role="none">
+                <a role="menuitem" href="#clinical-solutions"
+                  >Clinical solutions</a
+                >
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#technology">Technology</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item--dropdown">
+            <button
+              type="button"
+              class="nav-trigger"
+              id="menu-who"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="submenu-who"
+            >
+              Who We Serve
+              <svg
+                class="nav-chevron"
+                width="10"
+                height="10"
+                viewBox="0 0 12 12"
+                aria-hidden="true"
+              >
+                <path fill="currentColor" d="M6 8.5 1.5 4h9L6 8.5Z" />
+              </svg>
+            </button>
+            <ul
+              id="submenu-who"
+              class="submenu"
+              role="menu"
+              aria-labelledby="menu-who"
+            >
+              <li role="none">
+                <a role="menuitem" href="#patients-families"
+                  >Patients &amp; families</a
+                >
+              </li>
+              <li role="none">
+                <a role="menuitem" href="#providers">Healthcare providers</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact">Contact Us</a>
+          </li>
+        </ul>
+        <a class="btn-get-app" href="#video">Get App</a>
+      </nav>
+    </header>
+
+    <main class="hero" id="about">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="beta-tag">
+            <span class="beta-dot" aria-hidden="true"></span>
+            Beta available
+          </p>
+          <h1 class="hero-title">
+            A private network for<br />
+            <em class="hero-em">verified</em> connections.
+          </h1>
+          <p class="hero-lead">
+            This is the first Module&nbsp;1 deliverable (v1). The hero video will be
+            developed further and edited into a clip using relevant stock footage.
+          </p>
+        </div>
+
+        <div class="hero-media" id="video">
+          <div class="video-shell">
+            <div class="vimeo-embed">
+              <iframe
+                src="https://player.vimeo.com/video/1190997689?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                title="Heartlink+"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://player.vimeo.com/api/player.js" defer></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
