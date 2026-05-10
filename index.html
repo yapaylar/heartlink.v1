@@ -15,8 +15,64 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
       rel="stylesheet"
     />
+    <style id="gate-critical-css">
+      html:not(.gate-unlocked) .site-shell {
+        display: none !important;
+      }
+      html.gate-unlocked .access-gate {
+        display: none !important;
+      }
+    </style>
+    <script>
+      try {
+        if (sessionStorage.getItem('hl_site_auth') === '1') {
+          document.documentElement.classList.add('gate-unlocked')
+        }
+      } catch (_) {}
+    </script>
   </head>
   <body>
+    <div
+      class="access-gate"
+      id="access-gate"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gate-heading"
+    >
+      <div class="access-gate__panel">
+        <img
+          class="access-gate__logo"
+          src="/hlplogo.png"
+          alt=""
+          width="180"
+          height="44"
+          decoding="async"
+        />
+        <h1 id="gate-heading" class="access-gate__title">Access</h1>
+        <p class="access-gate__hint">Enter the code to continue.</p>
+        <form class="access-gate__form" id="gate-form" novalidate>
+          <label class="sr-only" for="gate-input">Access code</label>
+          <input
+            id="gate-input"
+            name="code"
+            class="access-gate__input"
+            type="password"
+            placeholder="Code"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            maxlength="64"
+          />
+          <p class="access-gate__error" id="gate-error" role="alert" hidden>
+            Incorrect code. Try again.
+          </p>
+          <button type="submit" class="access-gate__submit">Continue</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="site-shell">
     <div class="bg-base" aria-hidden="true"></div>
     <div class="bg-grain" aria-hidden="true"></div>
 
@@ -115,9 +171,84 @@
             <a href="#contact">Contact Us</a>
           </li>
         </ul>
-        <a class="btn-get-app" href="#video">Get App</a>
+        <a class="btn-get-app btn-get-app--desktop" href="#video">Get App</a>
+        <button
+          type="button"
+          class="nav-burger"
+          aria-expanded="false"
+          aria-controls="mobile-nav-overlay"
+          aria-label="Open menu"
+        >
+          <span class="nav-burger__line" aria-hidden="true"></span>
+          <span class="nav-burger__line" aria-hidden="true"></span>
+          <span class="nav-burger__line" aria-hidden="true"></span>
+        </button>
       </nav>
     </header>
+
+    <div
+      id="mobile-nav-overlay"
+      class="mobile-nav-overlay"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+    >
+      <button
+        type="button"
+        class="mobile-nav-overlay__backdrop"
+        aria-label="Close menu"
+        tabindex="-1"
+      ></button>
+      <div class="mobile-nav-overlay__panel">
+        <div class="mobile-nav-overlay__top">
+          <a class="mobile-nav-overlay__logo" href="/" aria-label="Heartlink+ home">
+            <img
+              class="logo-img logo-img--compact"
+              src="/hlplogo.png"
+              alt=""
+              width="160"
+              height="40"
+              decoding="async"
+            />
+          </a>
+          <button
+            type="button"
+            class="mobile-nav-overlay__close"
+            aria-label="Close menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M6.4 19 5 17.6l5.6-5.6L5 6.4 6.4 5l5.6 5.6L17.6 5 19 6.4 13.4 12 19 17.6 17.6 19 12 13.4 6.4 19Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <nav class="mobile-nav-overlay__nav" aria-label="Mobile primary">
+          <ul class="mobile-nav-overlay__list">
+            <li><a href="#about">About</a></li>
+            <li class="mobile-nav-overlay__sub">
+              <span class="mobile-nav-overlay__label">Services</span>
+              <ul>
+                <li><a href="#clinical-solutions">Clinical solutions</a></li>
+                <li><a href="#technology">Technology</a></li>
+              </ul>
+            </li>
+            <li class="mobile-nav-overlay__sub">
+              <span class="mobile-nav-overlay__label">Who We Serve</span>
+              <ul>
+                <li><a href="#patients-families">Patients &amp; families</a></li>
+                <li><a href="#providers">Healthcare providers</a></li>
+              </ul>
+            </li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+          <a class="mobile-nav-overlay__app-link" href="#video">Download App</a>
+        </nav>
+      </div>
+    </div>
 
     <main class="hero" id="about">
       <div class="hero-grid">
@@ -150,6 +281,7 @@
         </div>
       </div>
     </main>
+    </div>
 
     <script src="https://player.vimeo.com/api/player.js" defer></script>
     <script type="module" src="/src/main.js"></script>
